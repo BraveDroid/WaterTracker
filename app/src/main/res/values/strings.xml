@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WaterTracker</string>
+    <string name="truck">truck!</string>
 </resources>
