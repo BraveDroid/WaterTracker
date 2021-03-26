@@ -1,6 +1,7 @@
-package com.bravedroid.watertracker
+package com.bravedroid.watertracker.di
 
 import android.app.Application
+import com.bravedroid.watertracker.util.Logger
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
