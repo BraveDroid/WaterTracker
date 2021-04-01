@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_activity_info"
+    app:startDestination="@id/infoFragment2">
+
+    <fragment
+        android:id="@+id/infoFragment2"
+        android:name="com.bravedroid.watertracker.ui.fragments.InfoFragment2"
+        android:label="fragment_info2"
+        tools:layout="@layout/fragment_info2">
+        <action
+            android:id="@+id/action_infoFragment2_to_infoFragment22"
+            app:destination="@id/infoFragment22" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment22"
+        android:name="com.bravedroid.watertracker.ui.fragments.InfoFragment22"
+        android:label="fragment_info22"
+        tools:layout="@layout/fragment_info22" />
+</navigation>

@@ -1,10 +1,12 @@
 package com.bravedroid.watertracker.ui.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.bravedroid.watertracker.R
 import com.bravedroid.watertracker.databinding.FragmentInfo2Binding
 import com.bravedroid.watertracker.ui.viewmodels.InfoViewModel
@@ -48,7 +50,7 @@ class InfoFragment2 : Fragment(R.layout.fragment_info2) {
 
         Thread {
             val duration = measureTimeMillis {
-                heavy.get()
+                //heavy.get()
             }
             logger.log("getting heavy  ${this.javaClass.simpleName} $duration")
         }.start()
@@ -56,14 +58,20 @@ class InfoFragment2 : Fragment(R.layout.fragment_info2) {
         imageLoader.setImageViewWithGlide(
             imageResources,
             binding.fragment2Background,
-            "fargment2",
+            "fargment3",
         )
+
+        binding.navigationBtn.setOnClickListener {
+            it.setBackgroundColor(Color.RED)
+            findNavController().navigate(InfoFragment2Directions.actionInfoFragment2ToInfoFragment22())
+        }
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
     }
+
     companion object {
         fun instance() = InfoFragment2()
     }

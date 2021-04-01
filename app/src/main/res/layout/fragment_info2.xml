@@ -9,19 +9,36 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/fragment2Background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintBottom_toTopOf="@+id/navigationBtn"
+        app:layout_constraintEnd_toStartOf="@+id/comment_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.bravedroid.watertracker.ui.customviews.WaterCountTextView
         android:id="@+id/comment_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:fontFamily="sans-serif-condensed"
-        android:padding="16dp"
+        android:padding="8dp"
         android:textColor="@color/black"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/tools_fake_text" />
+
+    <Button
+        android:id="@+id/navigationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navigate to InfoFragment 22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comment_tv" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

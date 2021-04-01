@@ -42,6 +42,7 @@ class InfoActivity : AppCompatActivity() {
 
         activityHelper.hashCode()
 
+
 //        supportFragmentManager.beginTransaction()
 //            .add(R.id.fragment1, InfoFragment1.instance())
 //            .commit()

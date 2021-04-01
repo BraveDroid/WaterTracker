@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
     //id 'kotlin-allopen'
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
 }
 apply plugin: 'kotlin-allopen'
@@ -80,6 +81,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$versions.nav"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     //test
     testImplementation "junit:junit:$versions.junit"
     testImplementation "androidx.arch.core:core-testing:$versions.arch"

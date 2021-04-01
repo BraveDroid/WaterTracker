@@ -36,7 +36,7 @@ class InfoFragment3 : Fragment(R.layout.fragment_info3) {
         imageLoader.setImageViewWithGlide(
             imageResources,
             binding.fragment3Background,
-            "fargment3",
+            "fargment2",
         )
     }
 
