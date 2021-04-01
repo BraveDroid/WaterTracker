@@ -74,12 +74,6 @@ class WaterTrackerTest {
 
         ActivityScenario.launch(WaterTrackerActivity::class.java)
         Thread.sleep(4444)
-        //  launchFragment<WaterTrackerFragment>()
-//        with() {
-//            onFragment { fragment ->
-//
-//            }
-//        }
         onView(withId(R.id.waterCountText))
             .check(matches(withText(waterIntake.toString())))
     }
@@ -96,7 +90,5 @@ class WaterTrackerTest {
 
         verify(logger, Times(1)).log("init")
         verify(logger, AtMost(1)).log("init")
-
-
     }
 }

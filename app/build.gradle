@@ -54,9 +54,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.appcompat"
     implementation "androidx.fragment:fragment-ktx:1.3.2"
     implementation "androidx.fragment:fragment:1.3.2"
-    // coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
     //ui
     implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
@@ -76,15 +73,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_ktx"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle_ktx"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_ktx"
+
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.nav"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.nav"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
     //test
     testImplementation "junit:junit:$versions.junit"
     testImplementation "androidx.arch.core:core-testing:$versions.arch"
@@ -108,5 +106,4 @@ dependencies {
             it.enabled = false
         }
     }
-
 }

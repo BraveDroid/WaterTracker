@@ -1,15 +1,19 @@
 package com.bravedroid.watertracker.ui.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.bravedroid.watertracker.data.CalculatorRepository
 import kotlinx.coroutines.launch
 
 class Fragment22ViewModel(
+    private val savedStateHandle: SavedStateHandle,
     private val calculatorRepository: CalculatorRepository
 ) : ViewModel() {
+
+    val resultData: MutableLiveData<Int> = savedStateHandle.getLiveData<Int>("result1")
+
+    fun setResult(result: Int) {
+        savedStateHandle["result1"] = result
+    }
 
     private val _sumUiSate = MutableLiveData<UiState>()
     val sumUiState: LiveData<UiState> = _sumUiSate

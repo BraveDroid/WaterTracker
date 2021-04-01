@@ -66,8 +66,8 @@ class InfoActivity : AppCompatActivity() {
         screenWatcher.incrementVisits(this::class.java)
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         screenWatcher.totalCount.removeObservers(this)
     }
 }

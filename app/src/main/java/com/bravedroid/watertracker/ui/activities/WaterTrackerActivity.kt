@@ -63,8 +63,8 @@ internal class WaterTrackerActivity : AppCompatActivity() {
         screenWatcher.incrementVisits(this.javaClass)
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         screenWatcher.totalCount.removeObservers(this)
     }
 }
