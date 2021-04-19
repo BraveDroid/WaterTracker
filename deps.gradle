@@ -1,4 +1,3 @@
-
 def versions = [:]
 //config
 versions.applicationId = "com.bravedroid.app"
@@ -14,14 +13,17 @@ versions.android_studio = "4.1.2"
 //jvm
 versions.kotlin = "1.4.32"
 versions.arch = "2.1.0"
+
 // coroutine
 versions.coroutines = "1.4.3"
 
 //android core
 versions.core_ktx = "1.3.2"
 versions.appcompat = '1.3.0-rc01'
+
 //navigation
 versions.nav = "2.3.4"
+
 //dagger:hilt
 versions.hilt = "2.28-alpha"
 
@@ -35,10 +37,27 @@ versions.constraintlayout = "2.0.4"
 //log
 versions.timber = "4.7.1"
 
+//nhaarman mockito
+versions.nhaarman_mockito = "2.2.0"
+
 //test
 versions.junit = "4.13.2"
+
+//mockito
+versions
+versions.mockito = "3.9.0"
+
 //android test
 versions.ext_junit = "1.1.2"
 versions.espresso_core = "3.3.0"
 
+//hilt_android_testing
+versions.hilt_android_testing = "2.28-alpha"
+
+//truth
+versions.google_truth = '1.0.1'
+versions.androidx_truth = '1.3.0'
+
+//hamcrest
+versions.hamcrest = '2.2'
 ext.versions = versions

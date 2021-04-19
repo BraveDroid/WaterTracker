@@ -11,7 +11,7 @@ import com.bravedroid.watertracker.util.Logger
 
 internal class WaterTrackerViewModel @ViewModelInject constructor(
     private val preferencesHelper: PreferencesHelper,
-    var logger: Logger,
+    logger: Logger,
     @Assisted private val saveStateHandle: SavedStateHandle
 ) : ViewModel(), PreferencesHelper.WaterIntakePreferenceListener {
 

@@ -1,6 +1,7 @@
 package com.bravedroid.watertracker
 
 //import com.nhaarman.mockitokotlin2.mock
+import androidx.lifecycle.Observer
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -12,9 +13,11 @@ import com.bravedroid.watertracker.di.GlideModule
 import com.bravedroid.watertracker.di.WaterTrackingModule
 import com.bravedroid.watertracker.ui.activities.WaterTrackerActivity
 import com.bravedroid.watertracker.ui.fragments.PanelFragment
+import com.bravedroid.watertracker.ui.viewmodels.SingleLiveEvent
 import com.bravedroid.watertracker.util.ImageLoader
 import com.bravedroid.watertracker.util.Logger
 import com.bumptech.glide.RequestManager
+import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -24,11 +27,11 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.internal.verification.AtMost
 import org.mockito.internal.verification.Times
-import org.mockito.verification.VerificationMode
 
 @HiltAndroidTest
 @UninstallModules(WaterTrackingModule::class, GlideModule::class)
@@ -84,11 +87,27 @@ class WaterTrackerTest {
         `when`(preferencesHelper.getWaterIntake())
             .thenReturn(10)
 
-        launchFragmentInHiltContainer<PanelFragment>(null,R.style.Theme_WaterTracker)
+        launchFragmentInHiltContainer<PanelFragment>(null, R.style.Theme_WaterTracker)
         onView(withId(R.id.comment_tv))
             .check(matches(withText("10")))
 
         verify(logger, Times(1)).log("init")
         verify(logger, AtMost(1)).log("init")
+    }
+
+
+    @Test
+    fun sutValueShouldChangeTheValueOfTheSingleLiveData() {
+        val sut = SingleLiveEvent<Any>()
+        val observerMock1 = mock(Observer::class.java) as Observer<Any>
+        val observerMock2 = mock(Observer::class.java) as Observer<Any>
+        launchFragmentInHiltContainer<PanelFragment>(null, R.style.Theme_WaterTracker) {
+            sut.observe(this, observerMock1)
+            sut.value = 4
+            Mockito.verify(observerMock1).onChanged(4)
+
+            sut.observe(this, observerMock2)
+            Mockito.verify(observerMock2, never()).onChanged(4)
+        }
     }
 }

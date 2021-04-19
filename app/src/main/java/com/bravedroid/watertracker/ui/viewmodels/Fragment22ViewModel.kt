@@ -37,5 +37,5 @@ class Fragment22ViewModel(
 
 sealed class UiState {
     object Loading : UiState()
-    class Success(val sumResult: Int) : UiState()
+    data class Success(val sumResult: Int) : UiState()
 }

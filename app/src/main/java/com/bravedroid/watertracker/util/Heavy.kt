@@ -10,8 +10,7 @@ class Heavy @Inject constructor(
 
     @TextResources private val textResource: Resources,
     @ImageResources private val textImages: Resources,
-
-    val logger: Logger
+    val logger: Logger,
 ) {
 
     var intArray = IntArray(100_000_001)

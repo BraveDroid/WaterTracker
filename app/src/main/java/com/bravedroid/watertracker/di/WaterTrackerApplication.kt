@@ -18,7 +18,6 @@ class WaterTrackerApplication : Application() {
         }
     }
 
-
     @Inject
     lateinit var logger: Logger
 

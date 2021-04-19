@@ -3,6 +3,7 @@ package com.bravedroid.watertracker.util
 import javax.inject.Qualifier
 
 
+/***
 fun getTextResources(): Map<String, String> = mapOf(
     "title" to "titre",
     "userName" to "Prénom",
@@ -18,6 +19,7 @@ fun getImageResources(): Map<String, String> = mapOf(
     "fargment3Background" to "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFoGbURnyBcrM8fPZL-FKkq0uq81SsNIwUHQ&usqp=CAU",
 
     )
+***/
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)

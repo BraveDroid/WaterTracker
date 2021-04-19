@@ -16,10 +16,7 @@ import com.bravedroid.watertracker.di.WaterTrackerApplication
 import com.bravedroid.watertracker.ui.ext.LiveDataExt.combineWith
 import com.bravedroid.watertracker.ui.viewmodels.Fragment22ViewModel
 import com.bravedroid.watertracker.ui.viewmodels.UiState
-import com.bravedroid.watertracker.util.ImageLoader
-import com.bravedroid.watertracker.util.ImageResources
-import com.bravedroid.watertracker.util.Logger
-import com.bravedroid.watertracker.util.Resources
+import com.bravedroid.watertracker.util.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -42,7 +39,6 @@ class InfoFragment22 : Fragment(R.layout.fragment_info22) {
         ViewModelFactory(requireContext().applicationContext as WaterTrackerApplication, this)
     }
 
-    //    private val viewModel: Fragment22ViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentInfo22Binding.bind(view)

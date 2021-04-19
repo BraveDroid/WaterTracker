@@ -1,6 +1,8 @@
-  package com.bravedroid.watertracker.di
+package com.bravedroid.watertracker.di
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import com.bravedroid.watertracker.data.PreferencesHelper
 import com.bravedroid.watertracker.util.*
 import com.bumptech.glide.Glide
@@ -10,6 +12,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Singleton
@@ -17,12 +20,20 @@ import javax.inject.Singleton
 @InstallIn(ActivityComponent::class)
 @Module
 class WaterTrackingModule {
+
+    @ActivityScoped
+    @Provides
+    fun providesSharedPreferences(
+        @ApplicationContext context: Context,
+    ) =
+        context.getSharedPreferences("water_tracker_prefs", MODE_PRIVATE)
+
     @ActivityScoped
     @Provides
     fun providesPreferencesHelper(
-        @ApplicationContext context: Context,
+        sharedPreferences: SharedPreferences,
         logger: Logger,
-    ) = PreferencesHelper(context, logger)
+    ) = PreferencesHelper(sharedPreferences, logger)
 
     @ActivityScoped
     @Provides
@@ -69,4 +80,20 @@ class GlideModule {
     fun providesImageLoader(
         glide: RequestManager
     ): ImageLoader = ImageLoaderImpl(glide)
+}
+
+@Module
+@InstallIn(ActivityComponent::class)
+class TrackerModule {
+
+    @Tracker1
+    @Provides
+    fun providesTracker1(logger: Logger): BaseInfoActivityTracker = InfoActivityTracker1(logger)
+
+    @Tracker2
+    @Provides
+    fun providesTracker2(
+        @ActivityContext context: Context,
+        logger: Logger,
+    ): BaseInfoActivityTracker = InfoActivityTracker2(context, logger)
 }
